@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select :user_id,
+      options_for_select(User.all.collect {|u| ["#{u.lname}, #{u.fname}", u.id]},
+      selected: (@bug.user ? @bug.user.id : User.first.id)), {} %>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :bug_title %>
   </div>
@@ -23,7 +30,6 @@
 
   <div class="field">
     <%= form.label :issue_type %>
-    
     <%= form.select :issue_type, Bug.issue_types.keys, selected: @bug.issue_type %>
   </div>
 
@@ -35,13 +41,6 @@
   <div class="field">
     <%= form.label :status %>
     <%= form.select :status, Bug.statuses.keys, selected: @bug.status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.select :user_id,
-      options_for_select(User.all.collect {|u| ["#{u.lname},#{u.fname}", u.id]},
-      selected: (@bug.user ? @bug.user.id : User.first.id)), {} %>
   </div>
 
   <div class="actions">
