@@ -24,6 +24,7 @@ class BugsController < ApplicationController
   # POST /bugs
   # POST /bugs.json
   def create
+    
     @bug = Bug.new(bug_params)
 
     respond_to do |format|
@@ -69,7 +70,7 @@ class BugsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bug_params
-      params.require(:bug).permit(:title, :description, :issue_type, :priority, :status)
+      params.require(:bug).permit(:title, :description, :issue_type, :priority, :status, :user_id)
     end
 
     def set_issue_types
