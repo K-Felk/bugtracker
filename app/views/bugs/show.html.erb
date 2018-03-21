@@ -1,29 +1,39 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></div>
 
-<p>
-  <strong>Title:</strong>
+<div class="container">
+  <div class="row">
+  <div class="col-md-2">
+  <h3>Title</h3>
   <%= @bug.title %>
-</p>
+  </div>
 
-<p>
-  <strong>Description:</strong>
+<div class="col-md-2">
+  <h3>Description</h3>
   <%= @bug.description %>
-</p>
+</div>
 
-<p>
-  <strong>Issue type:</strong>
+<div class="col-md-2">
+  <h3>Issue type</h3>
   <%= @bug.issue_type %>
-</p>
+</div>
 
-<p>
-  <strong>Priority:</strong>
+<div class="col-md-2">
+  <h3>Priority</h3>
   <%= @bug.priority %>
-</p>
+</div>
 
-<p>
-  <strong>Status:</strong>
+<div class="col-md-2">
+  <h3>Status</h3>
   <%= @bug.status %>
-</p>
+</div>
+  
+</div>
 
+<div class="row">
+<div class="col-md-12">
 <%= link_to 'Edit', edit_bug_path(@bug) %> |
 <%= link_to 'Back', bugs_path %>
+</div>
+</div>
+
+</div>

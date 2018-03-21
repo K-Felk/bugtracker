@@ -11,39 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :user_id %>
-    <%= form.select :user_id,
+    <%= form.select :user_id, 
       options_for_select(User.all.collect {|u| ["#{u.lname}, #{u.fname}", u.id]},
-      selected: (@bug.user ? @bug.user.id : User.first.id)), {} %>
+      selected: (@bug.user ? @bug.user.id : User.first.id)), {}, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :bug_title %>
+    <%= form.text_field :title, id: :bug_title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :bug_description %>
+    <%= form.text_area :description, id: :bug_description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :issue_type %>
-    <%= form.select :issue_type, Bug.issue_types.keys, selected: @bug.issue_type %>
+    <%= form.select :issue_type, Bug.issue_types.keys, selected: @bug.issue_type, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :priority %>
-    <%= form.select :priority, Bug.priorities.keys, selected: @bug.priority %>
+    <%= form.select :priority, Bug.priorities.keys, selected: @bug.priority, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :status %>
-    <%= form.select :status, Bug.statuses.keys, selected: @bug.status %>
+    <%= form.select :status, Bug.statuses.keys, selected: @bug.status, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>
